@@ -1,15 +1,11 @@
+project(DeLorianExecutionManager)
+cmake_minimum_required(VERSION 2.8) 
 
-project(hello_world)			# Название проекта
-
-cmake_minimum_required(VERSION 2.8) # Проверка версии CMake.
-									# Если версия установленой программы
-									# старее указаной, произайдёт аварийный выход.
-
-add_executable(main src/main.cpp src/yaml_parce.cpp)		# Создает исполняемый файл с именем main
-									# из исходника main.cpp
+add_executable(main 
+              src/main.cpp 
+              src/yaml_parse.cpp)	
 
 set(CMAKE_CXX_STANDARD 14)
-
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14")
 
 include(FetchContent)
@@ -24,13 +20,15 @@ FetchContent_MakeAvailable(googletest)
 enable_testing()
 
 add_executable(
-  yaml_parce_test
-  tests/yaml_parce.cpp
+  tests
+  tests/tests.cpp
+  tests/yaml_parse_test.cpp
 )
 target_link_libraries(
-  yaml_parce_test
+  tests
   gtest_main
+  gmock_main
 )
 
 include(GoogleTest)
-gtest_discover_tests(yaml_parce_test)
+gtest_discover_tests(tests)

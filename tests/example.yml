@@ -1,4 +1,4 @@
-﻿processes:
+processes:
   - name: test_name
     executable-path: /Desktop/test_folder
     stdout-config:

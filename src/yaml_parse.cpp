@@ -1,4 +1,4 @@
-#include "include/yaml_parce.hpp"
+#include "include/yaml_parse.h"
 
 #include <fstream>
 #include <iostream>
@@ -7,23 +7,22 @@
 
 using namespace std;
 
-std::vector<config> parse(const std::string filename) {
+std::vector<set_prog_start> parse_yaml(const std::string filename) {
   std::string line;
-  std::vector<config> out;
+  std::vector<set_prog_start> out;
 
   ifstream file(filename);
 
   if (!file) {
     throw std::runtime_error("Could not open config file " + filename);
   }
-  config config_buffer;
+  set_prog_start config_buffer;
   while (getline(file, line)) {
-
     if (line.find("  - name: ") == 0) {
       if (config_buffer.name != "" and config_buffer.executable_path != "") {
         out.push_back(config_buffer);
       }
-      memset(&config_buffer, 0, sizeof(config));
+      memset(&config_buffer, 0, sizeof(set_prog_start));
     }
 
     if (line.find("  - name: ") == 0) {
