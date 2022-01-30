@@ -23,7 +23,7 @@ std::vector<set_prog_start> parse_yaml(const std::string filename) {
       if (config_buffer.name != "" and config_buffer.executable_path != "") {
         out.push_back(config_buffer);
       }
-      memset(&config_buffer, 0, sizeof(set_prog_start));
+      config_buffer = {};
     }
 
     if (line.find("  - name: ") == 0) {
