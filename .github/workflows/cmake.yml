@@ -26,7 +26,7 @@ jobs:
     - name: Build
       run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
 
-    - name: Test
+    - name: Tests
       working-directory: ${{github.workspace}}/build
       run: ctest -C ${{env.BUILD_TYPE}}
 
@@ -39,9 +39,9 @@ jobs:
           exclude_check: ./build
           
     - name: cppcheck - report
-      run: if [ -f "./cppcheck_report.txt" ];  then cat a && (exit 1); else (exit 0); fi 
+      run: if [ -f "./cppcheck_report.txt" ];  then cat ./cppcheck_report.txt && (exit 1); else (exit 0); fi 
 
-    - name: Clang-format Check
+    - name: Clang-format - report 
       uses: DoozyX/clang-format-lint-action@v0.13
       with:
         source: '.'
