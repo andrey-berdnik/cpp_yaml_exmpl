@@ -42,3 +42,4 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN}}
           std: c++14
           output_file: ""
+          exclude_check: ./build
