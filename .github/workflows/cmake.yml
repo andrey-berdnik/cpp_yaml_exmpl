@@ -38,10 +38,12 @@ jobs:
           std: c++14
           output_file: ""
           exclude_check: ./build
-                    
-    - name: Run clang-format style check for C/C++/Protobuf programs.
-      uses: jidicula/clang-format-action@v4.5.0
+
+    - name: Clang-format Check
+    - uses: DoozyX/clang-format-lint-action@v0.13
       with:
-        clang-format-version: '14'
-        check-path: './src ./tests'
-        fallback-style: 'Google'
+        source: '.'
+        exclude: './build'
+        extensions: 'h,cpp'
+        clangFormatVersion: 14
+        style: Google
