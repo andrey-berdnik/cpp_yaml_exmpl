@@ -31,15 +31,15 @@ jobs:
       run: ctest -C ${{env.BUILD_TYPE}}
 
 
-    - name: cpp Check
+    - name: cppcheck - prepearing
       uses: deep5050/cppcheck-action@main
       with:
           github_token: ${{ secrets.GITHUB_TOKEN}}
           std: c++14
           exclude_check: ./build
           
-    - name: cpp Check2
-      run: cat ./cppcheck_report.txt
+    - name: cppcheck - report
+      run: if [ -f "./cppcheck_report.txt" ];  then cat a && (exit 1); else (exit 0); fi 
 
     - name: Clang-format Check
       uses: DoozyX/clang-format-lint-action@v0.13
