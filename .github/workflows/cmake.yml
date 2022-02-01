@@ -36,8 +36,10 @@ jobs:
       with:
           github_token: ${{ secrets.GITHUB_TOKEN}}
           std: c++14
-          output_file: ""
           exclude_check: ./build
+          
+    - name: cpp Check2
+      run: cat ./cppcheck_report.txt
 
     - name: Clang-format Check
       uses: DoozyX/clang-format-lint-action@v0.13
