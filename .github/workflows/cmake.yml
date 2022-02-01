@@ -40,7 +40,7 @@ jobs:
           exclude_check: ./build
 
     - name: Clang-format Check
-    - uses: DoozyX/clang-format-lint-action@v0.13
+      uses: DoozyX/clang-format-lint-action@v0.13
       with:
         source: '.'
         exclude: './build'
