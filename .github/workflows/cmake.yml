@@ -44,3 +44,9 @@ jobs:
           
       - name: cppcheck
         uses: deep5050/cppcheck-action@main
+        
+                          
+      - name: publish report    
+        uses: mikeal/publish-to-github-action@master
+        env:
+          BRANCH_NAME: 'main' # your branch name goes here
