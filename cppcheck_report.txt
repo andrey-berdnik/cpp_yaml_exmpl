@@ -1,0 +1,26 @@
+src/include/yaml_parse.h:8:58: performance: Function parameter 'filename' should be passed by const reference. [passedByValue]
+std::vector<set_prog_start> parse_yaml(const std::string filename);
+                                                         ^
+src/yaml_parse.cpp:11:58: performance: Function parameter 'filename' should be passed by const reference. [passedByValue]
+std::vector<set_prog_start> parse_yaml(const std::string filename) {
+                                                         ^
+src/yaml_parse.cpp:22:9: performance: Inefficient usage of string::find() in condition; string::starts_with() could be faster. [stlIfStrFind]
+    if (line.find("  - name: ") == 0) {
+        ^
+src/yaml_parse.cpp:29:9: performance: Inefficient usage of string::find() in condition; string::starts_with() could be faster. [stlIfStrFind]
+    if (line.find("  - name: ") == 0) {
+        ^
+src/yaml_parse.cpp:33:9: performance: Inefficient usage of string::find() in condition; string::starts_with() could be faster. [stlIfStrFind]
+    if (line.find("    executable-path: ") == 0) {
+        ^
+src/yaml_parse.cpp:37:9: performance: Inefficient usage of string::find() in condition; string::starts_with() could be faster. [stlIfStrFind]
+    if (line.find("      file: ") == 0) {
+        ^
+src/yaml_parse.cpp:42:9: performance: Inefficient usage of string::find() in condition; string::starts_with() could be faster. [stlIfStrFind]
+    if (line.find("      - option-name: ") == 0) {
+        ^
+src/yaml_parse.cpp:47:9: performance: Inefficient usage of string::find() in condition; string::starts_with() could be faster. [stlIfStrFind]
+    if (line.find("      - option-name: ") == 0) {
+        ^
+nofile:0:0: information: Cppcheck cannot find all the include files (use --check-config for details) [missingIncludeSystem]
+
